@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>seanh/PandaZUI @ GitHub</title>
+	
+	<style type="text/css">
+		body {
+  		margin-top: 1.0em;
+  		background-color: #89752c;
+		  font-family: "Helvetica,Arial,FreeSans";
+  		color: #ffffff;
+    }
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+		h1 { font-size: 3.8em; color: #768ad3; margin-bottom: 3px; }
+		h1 .small { font-size: 0.4em; }
+		h1 a { text-decoration: none }
+		h2 { font-size: 1.5em; color: #768ad3; }
+    h3 { text-align: center; color: #768ad3; }
+    a { color: #768ad3; }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    .download { float: right; }
+		pre { background: #000; color: #fff; padding: 15px;}
+    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+	</style>
+	
+</head>
+
+<body>
+  <a href="http://github.com/seanh/PandaZUI"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <div id="container">
+
+    <div class="download">
+      <a href="http://github.com/seanh/PandaZUI/zipball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+      <a href="http://github.com/seanh/PandaZUI/tarball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+    </div>
+
+    <h1><a href="http://github.com/seanh/PandaZUI">PandaZUI</a>
+      <span class="small">by <a href="http://github.com/seanh">seanh</a></span></h1>
+
+    <div class="description">
+      A zoomable user interface (ZUI) for Panda3D, and a demo application.
+    </div>
+
+    <p><p>A ZUI (Zoomable User Interface) is "a graphical environment where users can
+change the scale of the viewed area in order to see more detail or less." The
+idea is that your "desktop" is an infinite and infinitely scalable plane, onto
+which you place all the objects that the user interacts with. Users can pan the
+camera around and zoom it in and out, move the objects around, and generally do
+whatever you can imagine and then implement. I think the main reference for the
+idea has to be the "Zoom World" in Jef Raskin's book <em>The Humane Interface</em>,
+but it was never implemented. With all these new devices with small screens the
+I think concept is having a bit of a revival. A few links on the subject:</p>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Zooming_user_interface">Zooming user interface</a> [wikipedia]</li>
+<li><a href="http://advogato.org/article/788.html">The Zooming User Interface</a> [an article on Advogato]</li>
+</ul>
+
+<p>What does this code actually do? Let's see, we've got:</p>
+
+<ul>
+<li><p>A ZCanvas, an infinite and infinitely scalable plane with a viewport that can
+pan around and zoom in and out. It's implemented by transforming a node on
+Panda's 2D scene graph. Thanks to ynjh_jo for the code for the zoom
+transformation.</p></li>
+<li><p>Nodes that you can automatically zoom the camera to, e.g. by clicking on them</p></li>
+<li><p>Nodes can change state depending on what the camera is focused on</p></li>
+<li><p>Nodes that respond to mouse-over highlights</p></li>
+<li><p>Nodes that can be dragged and dropped onto other nodes</p></li>
+<li><p>Container nodes that implement layouts. Provided are horizontal and vertical
+line layouts and a grid layout, but the general Box and BoxList framework
+provided supports easily creating arbitrary layouts. Compound layouts (layouts
+within layouts) are also supported.</p></li>
+<li><p>DirectGUI compatibility, i.e. you can embed DirectGUI widgets into the zoom
+scene, and put them into layout containers.</p></li>
+</ul>
+
+
+<p>It's all fairly generic, I think, so you could use it to implement lots of
+different interfaces. I'm using it to implement a little story writing
+prototype called 'Story Cards' which is also included in the download.</p></p><h2>Dependencies</h2>
+<p><a href="http://www.panda3d.org/">Panda3D</a></p>
+<h2>Install</h2>
+<p><p><code>zui/</code> contains the framework itself.</p>
+
+<p><code>zui_tests/</code> contains unit tests for the code in <code>zui/</code>.</p>
+
+<p><code>zui_demos/</code> contains unit demos for the code in <code>zui/</code>.</p>
+
+<p><code>storymaps/</code> contains a demo application.</p>
+
+<p><code>storymaps_demos/</code> contains unit demos for the code in <code>storymaps/</code>.</p>
+
+<p>Code should be run from the top-level folder, e.g.:</p>
+
+<pre><code>python storymaps/story.py
+</code></pre>
+
+<p>or</p>
+
+<pre><code>python zui_demos/box_demo.py    
+</code></pre></p>
+<h2>Authors</h2>
+<p>seanh<br/><br/>      </p>
+
+
+    <h2>Download</h2>
+    <p>
+      You can download this project in either
+      <a href="http://github.com/seanh/PandaZUI/zipball/master">zip</a> or
+      <a href="http://github.com/seanh/PandaZUI/tarball/master">tar</a> formats.
+    </p>
+    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+      by running:
+      <pre>$ git clone git://github.com/seanh/PandaZUI</pre>
+    </p>
+
+    <div class="footer">
+      get the source code on GitHub : <a href="http://github.com/seanh/PandaZUI">seanh/PandaZUI</a>
+    </div>
+
+  </div>
+
+  
+</body>
+</html>
